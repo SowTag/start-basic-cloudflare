@@ -1,6 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
-import { env } from 'cloudflare:workers'
 
 export const Route = createFileRoute('/')({
   loader: () => getData(),
@@ -10,7 +9,6 @@ export const Route = createFileRoute('/')({
 const getData = createServerFn().handler(() => {
   return {
     message: `Running in ${navigator.userAgent}`,
-    myVar: env.MY_VAR,
   }
 })
 
